@@ -8,7 +8,7 @@
 ![Groq](https://img.shields.io/badge/Groq-LLM-F55036)
 ![LangGraph](https://img.shields.io/badge/LangGraph-AI%20Pipeline-1C3C3C)
 ![JWT](https://img.shields.io/badge/Auth-JWT-black?logo=jsonwebtokens)
-![License](https://img.shields.io/badge/License-Not%20Specified-lightgrey)
+![License](https://img.shields.io/badge/License-MIT-green)
 
 ![GitHub stars](https://img.shields.io/github/stars/Dileep0103/IssueAI-Customer-Complaint-Management-System?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/Dileep0103/IssueAI-Customer-Complaint-Management-System?style=social)
@@ -334,9 +334,10 @@ The **AI Assistant** uses a lightweight intent detector (`intent_service.py`) to
 
 ---
 
+
 ## 📄 License
 
-This project currently has no license file. Add one (e.g., MIT) if you plan to make it publicly reusable.
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
