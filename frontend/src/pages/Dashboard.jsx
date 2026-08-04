@@ -19,7 +19,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import api from "../api/api";
 import ComplaintTable from "../components/ComplaintTable";
 import StatCard from "../components/StatCard";
-import ComplaintDialog from "../components/ComplaintDialog";
+import ComplaintDialog from "../components/complaintDialog";
 
 import DescriptionIcon from "@mui/icons-material/Description";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
