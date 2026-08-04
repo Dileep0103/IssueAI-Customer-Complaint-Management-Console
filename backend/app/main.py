@@ -25,7 +25,7 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:5173",
+        "https://issueai-customer-complaint-management-console.onrender.com",
     ],
     allow_credentials=True,
     allow_methods=["*"],
