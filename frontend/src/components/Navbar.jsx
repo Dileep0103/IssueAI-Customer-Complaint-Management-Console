@@ -51,12 +51,53 @@ function Navbar({ darkMode, setDarkMode }) {
           justifyContent: "space-between",
         }}
       >
-        <Typography
-          variant="h6"
-          fontWeight="bold"
-        >
-          AI Complaint Management System
-        </Typography>
+      <Box
+  sx={{
+    display: "flex",
+    alignItems: "center",
+    gap: 1.5,
+  }}
+>
+  <Avatar
+    sx={{
+      width: 42,
+      height: 42,
+      bgcolor: "#ffffff",
+      color: "#1976d2",
+      fontSize: "1.4rem",
+      fontWeight: "bold",
+      boxShadow: 2,
+    }}
+  >
+    🤖
+  </Avatar>
+
+  <Typography
+    variant="h5"
+    sx={{
+      fontWeight: 800,
+      letterSpacing: 1.2,
+      userSelect: "none",
+    }}
+  >
+    <Box
+      component="span"
+      sx={{
+        color: "#FFD54F",
+      }}
+    >
+      Issue
+    </Box>
+    <Box
+      component="span"
+      sx={{
+        color: "#fff",
+      }}
+    >
+     AI
+    </Box>
+  </Typography>
+</Box>
 
         <Box
           sx={{

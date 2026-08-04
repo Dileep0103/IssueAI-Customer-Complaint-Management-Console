@@ -32,10 +32,9 @@ function Analyze() {
       setResult(null);
 
       const response = await api.post("/analyze", {
-        complaint: complaint,
+        complaint,
       });
 
-      // Store only the analysis object
       setResult(response.data.analysis);
     } catch (err) {
       console.error(err);
@@ -46,22 +45,28 @@ function Analyze() {
   };
 
   return (
-    <Box>
-      <Typography variant="h4" mb={3}>
+      <Box sx={{ p: 3 }}>
+      <Typography
+        variant="h4"
+        sx={{ mb: 3 }}
+      >
         Analyze Complaint
       </Typography>
 
       <Paper
-        elevation={3}
+        elevation={4}
         sx={{
-          maxWidth: 800,
+          maxWidth: 900,
           mx: "auto",
           p: 4,
-          borderRadius: 3,
+          borderRadius: 4,
         }}
       >
         <Stack spacing={3}>
-          <Typography variant="h6">
+          <Typography
+            variant="h5"
+            fontWeight={600}
+          >
             Enter Customer Complaint
           </Typography>
 
@@ -84,9 +89,17 @@ function Analyze() {
             size="large"
             onClick={handleAnalyze}
             disabled={loading || !complaint.trim()}
+            sx={{
+              py: 1.5,
+              borderRadius: 2,
+              fontWeight: 600,
+            }}
           >
             {loading ? (
-              <CircularProgress size={24} color="inherit" />
+              <CircularProgress
+                size={24}
+                color="inherit"
+              />
             ) : (
               "Analyze Complaint"
             )}
@@ -102,12 +115,16 @@ function Analyze() {
             <Paper
               elevation={2}
               sx={{
-                p: 3,
-                borderRadius: 2,
-                bgcolor: "#fafafa",
+                p: 4,
+                borderRadius: 3,
+                bgcolor: "background.default",
               }}
             >
-              <Typography variant="h5" gutterBottom>
+              <Typography
+                variant="h4"
+                fontWeight={600}
+                gutterBottom
+              >
                 AI Analysis Result
               </Typography>
 
@@ -115,7 +132,11 @@ function Analyze() {
 
               <Stack spacing={3}>
                 <Box>
-                  <Typography variant="subtitle1" gutterBottom>
+                  <Typography
+                    variant="subtitle1"
+                    fontWeight={600}
+                    gutterBottom
+                  >
                     Category
                   </Typography>
 
@@ -126,7 +147,11 @@ function Analyze() {
                 </Box>
 
                 <Box>
-                  <Typography variant="subtitle1" gutterBottom>
+                  <Typography
+                    variant="subtitle1"
+                    fontWeight={600}
+                    gutterBottom
+                  >
                     Priority
                   </Typography>
 
@@ -143,7 +168,11 @@ function Analyze() {
                 </Box>
 
                 <Box>
-                  <Typography variant="subtitle1" gutterBottom>
+                  <Typography
+                    variant="subtitle1"
+                    fontWeight={600}
+                    gutterBottom
+                  >
                     Risk Level
                   </Typography>
 
@@ -162,7 +191,11 @@ function Analyze() {
                 <Divider />
 
                 <Box>
-                  <Typography variant="h6" gutterBottom>
+                  <Typography
+                    variant="h6"
+                    fontWeight={600}
+                    gutterBottom
+                  >
                     AI Summary
                   </Typography>
 

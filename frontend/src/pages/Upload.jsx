@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import {
   Alert,
   Box,
@@ -9,6 +10,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 
@@ -23,7 +25,7 @@ function Upload() {
   const [error, setError] = useState("");
   const [dragging, setDragging] = useState(false);
 
-  const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB
+  const MAX_FILE_SIZE = 10 * 1024 * 1024;
 
   const validateFile = (file) => {
     if (!file) return false;
@@ -103,52 +105,64 @@ function Upload() {
   };
 
   return (
-    <Box>
-      <Typography variant="h4" mb={3}>
-        Upload Complaint PDF
-      </Typography>
-
+      <Box sx={{ p: 3 }}>
+        <Typography
+          variant="h4"
+          sx={{ mb: 3 }}
+        >
+          Upload Complaint PDF
+        </Typography>
+        
       <Paper
         elevation={4}
         sx={{
-          maxWidth: 700,
+          maxWidth: 760,
           mx: "auto",
           p: 4,
-          borderRadius: 3,
+          borderRadius: 4,
         }}
       >
         <Stack spacing={3}>
-
           <Paper
             variant="outlined"
             onDragOver={handleDragOver}
             onDragLeave={handleDragLeave}
             onDrop={handleDrop}
             sx={{
-              p: 5,
+              p: 6,
               textAlign: "center",
               borderStyle: "dashed",
               borderWidth: 2,
               borderColor: dragging ? "primary.main" : "grey.400",
-              bgcolor: dragging ? "primary.50" : "background.default",
-              transition: "0.3s",
+              bgcolor: dragging
+                ? "action.hover"
+                : "background.default",
+              transition: "all .3s ease",
+              borderRadius: 3,
+              cursor: "pointer",
             }}
           >
             <CloudUploadIcon
               sx={{
-                fontSize: 70,
+                fontSize: 72,
                 color: "primary.main",
                 mb: 2,
               }}
             />
 
-            <Typography variant="h6">
+            <Typography
+              variant="h5"
+              fontWeight={600}
+              gutterBottom
+            >
               Drag & Drop PDF Here
             </Typography>
 
             <Typography
               color="text.secondary"
-              mb={3}
+              sx={{
+                mb: 3,
+              }}
             >
               or click below to browse
             </Typography>
@@ -156,6 +170,7 @@ function Upload() {
             <Button
               component="label"
               variant="contained"
+              size="large"
               disabled={loading}
             >
               Choose PDF
@@ -174,6 +189,7 @@ function Upload() {
               variant="outlined"
               sx={{
                 p: 2,
+                borderRadius: 2,
               }}
             >
               <Stack
@@ -219,6 +235,11 @@ function Upload() {
               size="large"
               onClick={handleUpload}
               disabled={!selectedFile}
+              sx={{
+                py: 1.5,
+                borderRadius: 2,
+                fontWeight: 600,
+              }}
             >
               Upload Complaint
             </Button>
@@ -235,7 +256,6 @@ function Upload() {
               {error}
             </Alert>
           )}
-
         </Stack>
       </Paper>
     </Box>

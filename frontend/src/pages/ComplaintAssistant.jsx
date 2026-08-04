@@ -103,8 +103,11 @@ How can I help you today?`,
   ];
 
   return (
-    <Box>
-      <Typography variant="h4" mb={3}>
+    <Box sx={{ p: 3 }}>
+      <Typography
+        variant="h4"
+        sx={{ mb: 3 }}
+      >
         AI Complaint Assistant
       </Typography>
 
