@@ -1,8 +1,3 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-
-import api from "../api/api";
-
 import {
   Box,
   Button,
@@ -11,13 +6,20 @@ import {
   TextField,
   Typography,
   Alert,
+  IconButton,
+  InputAdornment,
 } from "@mui/material";
+
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 function Login() {
   const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const [showPassword, setShowPassword] = useState(false);
 
   const [error, setError] = useState("");
 
@@ -74,14 +76,28 @@ function Login() {
           />
 
           <TextField
-            label="Password"
-            type="password"
-            fullWidth
-            value={password}
-            onChange={(e) =>
-              setPassword(e.target.value)
-            }
-          />
+          label="Password"
+          type={showPassword ? "text" : "password"}
+          fullWidth
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  onClick={() => setShowPassword(!showPassword)}
+                  edge="end"
+                >
+                  {showPassword ? (
+                    <VisibilityOff />
+                  ) : (
+                    <Visibility />
+                  )}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
+        />
 
           {error && (
             <Alert severity="error">
