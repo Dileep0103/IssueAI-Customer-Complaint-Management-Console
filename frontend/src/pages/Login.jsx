@@ -66,7 +66,7 @@ function Login() {
         }}
       >
         <Stack spacing={3}>
-          <Typography variant="h4" textAlign="center">
+          <Typography variant="h3">
             Admin Login
           </Typography>
 
@@ -74,40 +74,39 @@ function Login() {
             label="Username"
             fullWidth
             value={username}
-            onChange={(e) =>
-              setUsername(e.target.value)
-            }
+            onChange={(e) => setUsername(e.target.value)}
           />
 
           <TextField
-          label="Password"
-          type={showPassword ? "text" : "password"}
-          fullWidth
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                <IconButton
-                  onClick={() => setShowPassword(!showPassword)}
-                  edge="end"
-                >
-                  {showPassword ? (
-                    <VisibilityOff />
-                  ) : (
-                    <Visibility />
-                  )}
-                </IconButton>
-              </InputAdornment>
-            ),
-          }}
-        />
+            label="Password"
+            type={showPassword ? "text" : "password"}
+            fullWidth
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <Button
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? "Hide Password" : "Show Password"}
+          </Button>
 
           {error && (
             <Alert severity="error">
               {error}
             </Alert>
           )}
+
+          <Button
+            variant="text"
+            size="small"
+            sx={{
+              alignSelf: "flex-end",
+              textTransform: "none",
+            }}
+          >
+            Forgot Password?
+          </Button>
 
           <Button
             variant="contained"
