@@ -16,7 +16,7 @@ from app.routers.auth import router as auth_router
 
 
 app = FastAPI(
-    title="AIVOA Customer Complaint Management System"
+    title="IssueAI — Customer Complaint Management Console"
 )
 
 # -------------------------------

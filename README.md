@@ -1,47 +1,51 @@
-# 🤖📋 IssueAI — Customer Complaint Management Console
+# 🤖📋 IssueAI – AI-Powered Customer Complaint Management Console
 
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
 ![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.140-009688?logo=fastapi&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-4169E1?logo=postgresql&logoColor=white)
-![Material UI](https://img.shields.io/badge/Material%20UI-MUI-007FFF?logo=mui&logoColor=white)
+![Material%20UI](https://img.shields.io/badge/Material%20UI-MUI-007FFF?logo=mui&logoColor=white)
 ![Groq](https://img.shields.io/badge/Groq-LLM-F55036)
 ![LangGraph](https://img.shields.io/badge/LangGraph-AI%20Pipeline-1C3C3C)
 ![JWT](https://img.shields.io/badge/Auth-JWT-black?logo=jsonwebtokens)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-![GitHub stars](https://img.shields.io/github/stars/Dileep0103/IssueAI-Customer-Complaint-Management-System?style=social)
-![GitHub forks](https://img.shields.io/github/forks/Dileep0103/IssueAI-Customer-Complaint-Management-System?style=social)
-![Last commit](https://img.shields.io/github/last-commit/Dileep0103/IssueAI-Customer-Complaint-Management-System)
+![GitHub stars](https://img.shields.io/github/stars/Dileep0103/IssueAI-Customer-Complaint-Management-Console?style=social)
+![GitHub forks](https://img.shields.io/github/forks/Dileep0103/IssueAI-Customer-Complaint-Management-Console?style=social)
+![Last commit](https://img.shields.io/github/last-commit/Dileep0103/IssueAI-Customer-Complaint-Management-Console)
 
 IssueAI is an AI-powered full-stack web application built with **React, FastAPI, PostgreSQL, and the Groq LLM**. It automates the entire lifecycle of customer complaint handling — intake, AI-based classification and prioritization, tracking, and reporting — through a clean admin dashboard and a conversational AI assistant, replacing manual complaint triage with automated, consistent analysis.
 
 ## 🚀 Project Status
 
-✅ Active Development — Current Version: v1.0
+✅ Production Ready — Version: v1.0
+
+- ✅ Development Completed
+- ✅ Testing Completed
+- ✅ Deployment Completed
 
 ## 📑 Table of Contents
 
 - [Why IssueAI?](#-why-issueai)
 - [Key Highlights](#-key-highlights)
 - [Features](#-features)
-- [Screenshots](#️-screenshots)
+- [Screenshots](#-screenshots)
 - [Demo](#-demo)
-- [Architecture](#️-architecture)
-- [Tech Stack](#️-tech-stack)
+- [Architecture](#-architecture)
+- [Tech Stack](#-tech-stack)
 - [Project Structure](#-project-structure)
 - [API Overview](#-api-overview)
 - [Live Demo](#-live-demo)
-- [Setup & Installation](#️-setup--installation)
+- [Setup & Installation](#-setup--installation)
 - [Default Admin Login](#-default-admin-login)
 - [How the AI Pipeline Works](#-how-the-ai-pipeline-works)
+- [Deployment](#-deployment)
+- [Challenges Solved](#-challenges-solved)
 - [Resume Highlights](#-resume-highlights)
 - [Project Highlights](#-project-highlights)
-- [Future Improvements](#️-possible-future-improvements)
+- [Possible Future Improvements](#-possible-future-improvements)
 - [Author](#-author)
 - [License](#-license)
-
----
 
 ## 🎯 Why IssueAI?
 
@@ -124,35 +128,35 @@ flowchart TD
 ### Backend
 
 | Technology | Purpose |
-|---|---|
-| FastAPI | REST API framework |
+|------------|---------|
+| FastAPI | REST API Framework |
 | SQLAlchemy | ORM |
 | PostgreSQL | Database |
-| LangGraph + LangChain (`langchain-groq`) | AI complaint analysis pipeline |
-| Groq LLM (`openai/gpt-oss-20b`) | Complaint classification & assistant responses |
-| `python-jose` | JWT authentication |
-| `passlib` (bcrypt) | Password hashing |
-| `pypdf` | PDF text extraction |
+| LangGraph + LangChain (`langchain-groq`) | AI Complaint Analysis Pipeline |
+| Groq LLM (`openai/gpt-oss-20b`) | Complaint Classification & AI Responses |
+| `python-jose` | JWT Authentication |
+| `passlib` (bcrypt) | Password Hashing |
+| `pypdf` | PDF Text Extraction |
 
 ### Frontend
 
 | Technology | Purpose |
-|---|---|
-| React 19 + Vite | UI framework & build tool |
-| Material UI (MUI) | Component library |
-| Redux Toolkit | State management |
-| React Router | Client-side routing |
-| Recharts | Analytics charts |
-| Axios | API requests |
-| `react-markdown` + `remark-gfm` | Chatbot message rendering |
-| `jspdf` / `jspdf-autotable` / `react-csv` | Report export (PDF/CSV) |
+|------------|---------|
+| React 19 + Vite | UI Framework & Build Tool |
+| Material UI (MUI) | Component Library |
+| Redux Toolkit | State Management |
+| React Router | Client-side Routing |
+| Recharts | Analytics Charts |
+| Axios | API Requests |
+| `react-markdown` + `remark-gfm` | Chatbot Message Rendering |
+| `jspdf` / `jspdf-autotable` / `react-csv` | PDF & CSV Report Export |
 
 ---
 
 ## 📁 Project Structure
 
 ```
-IssueAI-Customer-Complaint-Management-System/
+IssueAI-Customer-Complaint-Management-Console/
 ├── 🗄️ backend/
 │   ├── app/
 │   │   ├── 🔐 auth/            # JWT + password hashing
@@ -181,29 +185,27 @@ IssueAI-Customer-Complaint-Management-System/
 
 ## 🔌 API Overview
 
-| Method | Endpoint                  | Description                                         |
-|--------|----------------------------|------------------------------------------------------|
-| GET    | `/`                         | Health check                                         |
-| GET    | `/db-test`                  | Test database connectivity                           |
-| POST   | `/analyze`                  | Analyze raw complaint text via AI                     |
-| POST   | `/upload`                   | Upload a PDF complaint, analyze, and save it          |
-| GET    | `/complaints/`               | Get all complaints                                    |
-| GET    | `/complaints/filter`         | Filter complaints by category/priority/risk/status    |
-| GET    | `/complaints/{id}`           | Get a single complaint                                |
-| PUT    | `/complaints/{id}/status`    | Update a complaint's status                           |
-| DELETE | `/complaints/{id}`           | Delete a complaint                                    |
-| POST   | `/auth/login`                | Admin login, returns a JWT                            |
-| POST   | `/assistant/`                | Ask the AI assistant a question about complaints      |
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/` | Health Check |
+| GET | `/db-test` | Test Database Connectivity |
+| POST | `/analyze` | Analyze Complaint Text Using AI |
+| POST | `/upload` | Upload PDF, Analyze, and Save Complaint |
+| GET | `/complaints/` | Retrieve All Complaints |
+| GET | `/complaints/filter` | Filter Complaints by Category, Priority, Risk, or Status |
+| GET | `/complaints/{id}` | Retrieve a Complaint by ID |
+| PUT | `/complaints/{id}/status` | Update Complaint Status |
+| DELETE | `/complaints/{id}` | Delete a Complaint |
+| POST | `/auth/login` | Admin Login (Returns JWT Token) |
+| POST | `/assistant/` | Query the AI Complaint Assistant |
 
 ---
 
 ## 🌐 Live Demo
 
-> _Add deployment links once the project is deployed._
-
-- **Frontend:** _TBD_
-- **Backend:** _TBD_
-- **API Docs (Swagger):** _TBD_ (FastAPI auto-generates this at `/docs`)
+- **Frontend:** [issueai-customer-complaint-management-si8l.onrender.com](https://issueai-customer-complaint-management-si8l.onrender.com)
+- **Backend:** [issueai-customer-complaint-management.onrender.com](https://issueai-customer-complaint-management.onrender.com)
+- **API Docs (Swagger):** [issueai-customer-complaint-management.onrender.com/docs](https://issueai-customer-complaint-management.onrender.com/docs)
 
 ---
 
@@ -261,7 +263,7 @@ npm run dev
 
 The app will be available at `http://localhost:5173`.
 
-> ⚠️ **Note:** The backend CORS configuration currently allows requests only from `http://localhost:5173`, and the frontend's Axios client points to `http://127.0.0.1:8000`. Make sure both ports match your local setup, or update `backend/app/main.py` and `frontend/src/api/api.js` accordingly.
+> ℹ️ **Note:** For local development, update the frontend's Axios `baseURL` (`frontend/src/api/api.js`) and the backend's CORS origins (`backend/app/main.py`) to match your local ports.
 
 ---
 
@@ -286,6 +288,28 @@ Password: admin123
 4. The result is stored in PostgreSQL and surfaced in the dashboard, analytics, and assistant chat.
 
 The **AI Assistant** uses a lightweight intent detector (`intent_service.py`) to route questions (e.g., total counts, high-risk complaints, category-specific queries) to the right database query, then uses the Groq LLM to generate a natural-language answer grounded in the retrieved complaint data.
+
+---
+
+## ☁️ Deployment
+
+| Layer | Service |
+|-------|---------|
+| Frontend | Render Static Site |
+| Backend | Render Web Service |
+| Database | Render PostgreSQL |
+| Authentication | JWT |
+| AI | Groq + LangGraph |
+
+---
+
+## 🧩 Challenges Solved
+
+- Configured JWT authentication end to end (issuing, validating, protecting routes).
+- Resolved CORS issues between the deployed frontend and backend.
+- Fixed bcrypt/passlib compatibility issues during deployment.
+- Connected FastAPI to a managed PostgreSQL instance.
+- Deployed both frontend and backend as separate services on Render.
 
 ---
 
@@ -326,14 +350,12 @@ The **AI Assistant** uses a lightweight intent detector (`intent_service.py`) to
 **Valluri Dileep Kumar**
 
 🎓 B.Tech Computer Science Engineering
-💻 Full Stack Developer
-🤖 AI & Python Enthusiast
+💻 Full Stack Developer | Python | React | FastAPI | AI Applications
 
 - GitHub: [@Dileep0103](https://github.com/Dileep0103)
-- LinkedIn: _add your LinkedIn URL here_
+- LinkedIn: https://www.linkedin.com/in/dileep-kumar-valluri/
 
 ---
-
 
 ## 📄 License
 
