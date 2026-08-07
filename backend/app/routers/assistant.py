@@ -45,7 +45,7 @@ Risk Level: {complaint.risk_level}
 Complaint: {complaint.complaint}
 Summary: {complaint.ai_summary}
 
------------------------------------
+---
 """
 
     return context
@@ -54,7 +54,40 @@ Summary: {complaint.ai_summary}
 @router.post("/")
 def assistant(request: AssistantRequest, db: Session = Depends(get_db)):
 
-    question = request.question
+    question = request.question.strip()
+    lower_question = question.lower()
+
+    # ==========================
+    # Greeting Support
+    # ==========================
+    greetings = [
+        "hi",
+        "hello",
+        "hey",
+        "good morning",
+        "good afternoon",
+        "good evening",
+    ]
+
+    if lower_question in greetings:
+        return {
+            "answer": """👋 Hello! I'm IssueAI.
+
+I'm your AI-powered Complaint Management Assistant.
+
+I can help you with:
+
+• Complaint analysis
+• Complaint statistics
+• High-risk complaints
+• Billing complaints
+• Technical complaints
+• Complaint summaries
+
+You can also ask me general AI questions.
+
+How can I help you today?"""
+        }
 
     intent = detect_intent(question)
 
@@ -128,17 +161,14 @@ def assistant(request: AssistantRequest, db: Session = Depends(get_db)):
         for category, count in category_counts:
             text += f"{category}: {count} complaints\n"
 
-        answer = ask_assistant(
-            question,
-            text
-        )
+        answer = ask_assistant(question, text)
 
         return {
             "answer": answer
         }
 
     # ==========================
-    # General Questions
+    # General Complaint Questions
     # ==========================
     else:
 
@@ -151,10 +181,7 @@ def assistant(request: AssistantRequest, db: Session = Depends(get_db)):
 
         context = build_context(complaints)
 
-        answer = ask_assistant(
-            question,
-            context
-        )
+        answer = ask_assistant(question, context)
 
         return {
             "answer": answer
