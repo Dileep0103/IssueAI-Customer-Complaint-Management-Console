@@ -100,7 +100,49 @@ Toggleable UI theme, persisted in local storage.
 
 ## 🖼️ Screenshots
 
-> 🚧 Screenshots will be added after deployment.
+### 🔐 Login
+
+![Login](Screenshots/Login.png)
+
+---
+
+### 📊 Dashboard
+
+![Dashboard](Screenshots/Dashboard.png)
+
+---
+
+### 📄 Upload Complaint
+
+![Upload](Screenshots/Upload.png)
+
+---
+
+### 🤖 AI Complaint Analysis
+
+![Analysis](Screenshots/Analysis.png)
+
+![Analysis Results](Screenshots/Analysis_Results.png)
+
+---
+
+### 📈 Analytics Dashboard
+
+![Analytics](Screenshots/Analytics.png)
+
+---
+
+### 💬 AI Assistant
+
+![AI Assistant](Screenshots/AI_Assistant.png)
+
+![AI Assistant Results](Screenshots/AI_Assistant_Results.png)
+
+---
+
+### 📋 Complaint Dashboard Results
+
+![Dashboard Results](Screenshots/Dashboard_Results.png)
 
 ## 🎥 Demo
 
