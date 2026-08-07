@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import axios from "axios";
+import api from "../api/api";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
@@ -64,12 +64,9 @@ How can I help you today?`,
     setLoading(true);
 
     try {
-      const response = await axios.post(
-        "http://127.0.0.1:8000/assistant/",
-        {
-          question: currentQuestion,
-        }
-      );
+      const response = await api.post("/assistant/", {
+        question: currentQuestion,
+      });
 
       setMessages((prev) => [
         ...prev,
