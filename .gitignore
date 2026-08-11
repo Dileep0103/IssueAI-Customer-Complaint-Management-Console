@@ -44,3 +44,6 @@ npm-debug.log*
 
 # Uploads
 backend/uploads/
+
+#Demo
+Demo.mp4
