@@ -350,8 +350,9 @@ For local development, the seeded admin account can be created using:
 
 ```bash
 python seed_admin.py
+```
 
----
+Default credentials: `admin` / `admin123`
 
 ## 🧠 How the AI Pipeline Works
 
