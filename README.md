@@ -160,7 +160,8 @@ Toggleable UI theme, persisted in local storage.
 
 ## 🎥 Demo
 
-🎬 **Project Demo:** Video coming soon.
+🎬 **Project Demo:** [Watch the Demo Video](Demo.mp4)
+
 
 The demo covers:
 
@@ -414,7 +415,6 @@ The **AI Assistant** uses a lightweight intent detector (`intent_service.py`) to
 - Move the JWT secret key out of source code and into environment variables
 - Add role-based access control for multiple admins
 - Add pagination for large complaint datasets
-- Deploy the backend and frontend (e.g., Render/Railway + Vercel) and add live demo links
 - Add automated tests for API routes and AI classification accuracy
 
 ---
