@@ -15,14 +15,18 @@
 ![Last commit](https://img.shields.io/github/last-commit/Dileep0103/IssueAI-Customer-Complaint-Management-Console)
 
 IssueAI is an AI-powered full-stack web application built with **React, FastAPI, PostgreSQL, and the Groq LLM**. It automates the entire lifecycle of customer complaint handling — intake, AI-based classification and prioritization, tracking, and reporting — through a clean admin dashboard and a conversational AI assistant, replacing manual complaint triage with automated, consistent analysis.
-
+         
 ## 🚀 Project Status
 
 ✅ Production Ready — Version: v1.0
 
 - ✅ Development Completed
-- ✅ Testing Completed
-- ✅ Deployment Completed
+- ✅ Local Development Tested
+- ✅ Production Deployment Completed
+- ✅ Render Frontend & Backend Tested
+- ✅ Database Connectivity Verified
+- ✅ AI Assistant Tested
+- ✅ Authentication Tested
 
 ## 📑 Table of Contents
 
@@ -37,7 +41,7 @@ IssueAI is an AI-powered full-stack web application built with **React, FastAPI,
 - [API Overview](#-api-overview)
 - [Live Demo](#-live-demo)
 - [Setup & Installation](#-setup--installation)
-- [Default Admin Login](#-default-admin-login)
+- [Demo Admin Login](#-demo-admin-login)
 - [How the AI Pipeline Works](#-how-the-ai-pipeline-works)
 - [Deployment](#-deployment)
 - [Challenges Solved](#-challenges-solved)
@@ -60,9 +64,12 @@ Traditional complaint management relies on manual categorization and prioritizat
 - 📄 PDF complaint upload & automatic text extraction
 - 📊 Interactive analytics dashboard with charts
 - 🔐 JWT-based authentication with protected routes
+- 👁️ Show / hide password functionality on login
 - 💬 AI chatbot for natural-language queries over complaint data
 - 🌗 Dark / Light mode
 - 📤 CSV & PDF report export
+- 🔄 Separate development and production API configurations
+- ☁️ Deployed frontend and backend on Render
 
 ---
 
@@ -91,7 +98,14 @@ Visual breakdown of complaints by category and risk level, plus complaint trends
 A chat interface that understands intents like "how many complaints", "high risk complaints", "billing complaints", or "which category has the most complaints", and answers using live database context.
 
 **🔐 JWT-based Admin Authentication**
-Secure login for admin access with protected frontend routes.
+
+Secure admin login using JWT authentication with protected frontend routes.
+
+- Username/password authentication
+- JWT access token handling
+- Protected application routes
+- Show / hide password toggle
+- Invalid credential error handling
 
 **🌗 Dark / Light Theme**
 Toggleable UI theme, persisted in local storage.
@@ -146,9 +160,18 @@ Toggleable UI theme, persisted in local storage.
 
 ## 🎥 Demo
 
-> 🚧 Demo GIF will be added after deployment.
+🎬 **Project Demo:** Video coming soon.
 
----
+The demo covers:
+
+- 🔐 Admin authentication
+- 📊 Complaint dashboard
+- 📄 PDF complaint upload
+- 🤖 AI complaint analysis
+- 📈 Analytics dashboard
+- 💬 AI Complaint Assistant
+- 🌗 Dark / Light mode
+- 📤 Complaint report export
 
 ## 🏗️ Architecture
 
@@ -215,11 +238,13 @@ IssueAI-Customer-Complaint-Management-Console/
 │   └── seed_complaints.py   # Seeds sample complaint data
 └── 💻 frontend/
     ├── src/
-    │   ├── 🔌 api/              # Axios instance
+    │   ├── 🔌 api/              # Axios API configuration
     │   ├── 🧩 components/       # Navbar, Sidebar, tables, dialogs, charts
-    │   ├── 📄 pages/             # Dashboard, Upload, Analyze, Assistant, Analytics, Login
+    │   ├── 📄 pages/            # Dashboard, Upload, Analyze, Assistant, Analytics, Login
     │   ├── 🗂️ redux/             # Redux store/slices
-    │   └── 🎨 theme/              # MUI theme config
+    │   └── 🎨 theme/             # MUI theme config
+    ├── .env.development         # Local API configuration
+    ├── .env.production          # Production API configuration
     └── package.json
 ```
 
@@ -305,20 +330,26 @@ npm run dev
 
 The app will be available at `http://localhost:5173`.
 
-> ℹ️ **Note:** For local development, update the frontend's Axios `baseURL` (`frontend/src/api/api.js`) and the backend's CORS origins (`backend/app/main.py`) to match your local ports.
+**Development — `.env.development`:**
+
+​```env
+VITE_API_URL=http://127.0.0.1:8000
+​```
+
+**Production — `.env.production`:**
+
+​```env
+VITE_API_URL=https://issueai-customer-complaint-management.onrender.com
+​```
 
 ---
 
-## 🔐 Default Admin Login
+## 🔐 Demo Admin Login
 
-After running `seed_admin.py`:
+For local development, the seeded admin account can be created using:
 
-```
-Username: admin
-Password: admin123
-```
-
-⚠️ Change this password before deploying to production.
+```bash
+python seed_admin.py
 
 ---
 
